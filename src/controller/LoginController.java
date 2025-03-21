@@ -1,5 +1,6 @@
 package controller;
 import model.Model;
+import view.DashboardView;
 import view.LoginView;
 
 import javax.swing.JOptionPane;
@@ -8,10 +9,12 @@ public class LoginController implements ActionListener {
     
     private Model model; 
     private LoginView loginWindow; 
+    private DashboardView dashboard;
 
-    public LoginController(Model model, LoginView loginWindow) {
-        this.model = model;
-        this.loginWindow = loginWindow;
+    public LoginController(Model model, LoginView loginWindow, DashboardView dashboard) {
+        this.model = model; // the model
+        this.loginWindow = loginWindow; // the login window
+        this.dashboard = dashboard; // the dashboard window
     }
 
     // handles button clicks
@@ -22,6 +25,7 @@ public class LoginController implements ActionListener {
              // 1. check if model has the information in the database
 
              // 2. open dashboard if 1. is true
+             dashboard.initializeDashboard();
         }
 
         // opens create account window if the create new account button is clicked
