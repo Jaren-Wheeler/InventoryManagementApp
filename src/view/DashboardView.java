@@ -1,6 +1,7 @@
 package view;
 import model.Model;
 import javax.swing.*;
+import view.LoginView;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -8,22 +9,22 @@ import java.awt.event.*;
 // class outlining the user interface for the main dashboard
 public class DashboardView {
 
-    private JFrame dashboard;
+    private JFrame window;
+    private JPanel dashboard;
 
-    public DashboardView() {
-        
-        initializeDashboard();
+    public DashboardView(JFrame window) {
+        this.window = window; 
     }
 
     // create the main outline of the dashboard
     public void initializeDashboard() {
-        dashboard = new JFrame("Inventory Management");
-        dashboard.setSize(800, 600); // Set window size
-        dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close on exit
-
+       
+        dashboard = new JPanel();
+        dashboard.setLayout(new FlowLayout());
         JLabel db_title = new JLabel("Welcome");
-
+        
         dashboard.add(db_title);
-        dashboard.setVisible(true);
+        window.setContentPane(dashboard);
+        window.setVisible(true);
     }
 }
