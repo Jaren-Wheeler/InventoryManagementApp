@@ -11,15 +11,16 @@ public class DashboardView {
     private JFrame dashboard;
 
     public DashboardView() {
-        this.dashboard = new JFrame("Inventory Management");
+        
         initializeDashboard();
     }
 
     // create the main outline of the dashboard
     public void initializeDashboard() {
-      
+        dashboard = new JFrame("Inventory Management");
         dashboard.setSize(800, 600); // Set window size
         dashboard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close on exit
+
         JLabel db_title = new JLabel("Welcome");
 
         dashboard.add(db_title);
