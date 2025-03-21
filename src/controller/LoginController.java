@@ -25,11 +25,11 @@ public class LoginController implements ActionListener {
              // 1. check if model has the information in the database
 
              // 2. open dashboard if 1. is true
-             loginWindow.window.getContentPane().removeAll(); // remove all content from the login window
-             loginWindow.window.setContentPane(dashboard); // set the content of the window to dashboard panel rather than login panel
-             dashboard.initializeDashboard(); // create the dashboard
-             loginWindow.window.revalidate();
-             loginWindow.window.repaint();
+            loginWindow.window.getContentPane().removeAll(); // remove all content from the login window
+             
+            dashboard.initializeDashboard(); // create the dashboard
+            loginWindow.window.revalidate();
+            loginWindow.window.repaint();
              
         }
 
