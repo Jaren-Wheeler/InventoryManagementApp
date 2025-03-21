@@ -11,6 +11,9 @@ public class Main {
        
         loginWindow.initializeWindow(); // open the login window
         loginWindow.addCreateAccountListener(controller); 
+
+        //loginWindow.createAccWindow(controller);
+       
     }
     
 }

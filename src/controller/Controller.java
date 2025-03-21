@@ -12,14 +12,20 @@ public class Controller implements ActionListener {
     public Controller(Model model, mainView loginWindow) {
         this.model = model;
         this.loginWindow = loginWindow;
-
-        this.loginWindow.addCreateAccountListener(this);
     }
 
-    // opens the create account window when create new account button is clicked.
+    // handles button clicks
     public void actionPerformed(ActionEvent e) {
+
+        // opens create account window if the create new account button is clicked
         if (e.getSource() == loginWindow.createAccBtn) {
-            loginWindow.createAccWindow();
+            loginWindow.createAccWindow(this);
         }
+
+        // writes the inputted account information into the database
+        if (e.getSource() == loginWindow.submitBtn) {
+            Model.createAccount(loginWindow.usernameCreateField.getText(),loginWindow.passwordCreateField.getText());
+        }
+
     }
 }

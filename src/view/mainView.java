@@ -13,7 +13,9 @@ import java.awt.event.*;
 public class mainView {
     public JFrame window;
     public JPanel loginPanel;
-    public JButton enterBtn, createAccBtn;
+    public JLabel usernameCreateLbl,passwordCreateLbl, confPasswordCreateLbl;
+    public JTextField usernameCreateField, passwordCreateField, confPasswordCreateField;
+    public JButton enterBtn, createAccBtn, submitBtn;
 
     public mainView() {
         initializeWindow();
@@ -67,35 +69,37 @@ public class mainView {
     }
     
     // create the pop up window when creating a new account
-    public void createAccWindow() {
+    public void createAccWindow(ActionListener l) {
         JPanel createAccPanel = new JPanel();
         createAccPanel.setLayout(new GridLayout(4,2,10,20)); // grid layout design
        
         
         // label and text field for username
-        JLabel usernameLbl = new JLabel("Enter a username");
-        JTextField  usernameField = new JTextField();
+        usernameCreateLbl = new JLabel("Enter a username");
+        usernameCreateField = new JTextField();
 
         // label and text field for password
-        JLabel passwordLbl = new JLabel("Enter a passowrd (must be more than 8 characters)");
-        JTextField  passwordField = new JTextField();
+        passwordCreateLbl = new JLabel("Enter a passowrd (must be more than 8 characters)");
+        passwordCreateField = new JTextField();
 
         // label and text field for confirming password
-        JLabel confPasswordLbl = new JLabel("Confirm your password");
-        JTextField  confPasswordField = new JTextField();
+        confPasswordCreateLbl = new JLabel("Confirm your password");
+        confPasswordCreateField = new JTextField();
 
         // button for submitting info
-        JButton submitBtn = new JButton("Submit");
-
+        submitBtn = new JButton("Submit");
+      
         // add everything to the panel
-        createAccPanel.add(usernameLbl);
-        createAccPanel.add(usernameField);
-        createAccPanel.add(passwordLbl);
-        createAccPanel.add(passwordField);
-        createAccPanel.add(confPasswordLbl);
-        createAccPanel.add(confPasswordField);
+        createAccPanel.add(usernameCreateLbl);
+        createAccPanel.add(usernameCreateField);
+        createAccPanel.add(passwordCreateLbl);
+        createAccPanel.add(passwordCreateField);
+        createAccPanel.add(confPasswordCreateLbl);
+        createAccPanel.add(confPasswordCreateField);
         createAccPanel.add(submitBtn);
      
+        submitBtn.addActionListener(l);
+        
         // remove login panel and add create account panel to the window
         window.remove(loginPanel);
         window.add(createAccPanel);
@@ -107,5 +111,9 @@ public class mainView {
 
     public void addCreateAccountListener(ActionListener l) {
         createAccBtn.addActionListener(l);
+    }
+
+    public void addSubmitNewAccountListener(ActionListener l) {
+        submitBtn.addActionListener(l);
     }
 }

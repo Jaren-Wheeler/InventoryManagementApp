@@ -1,0 +1,27 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "InventoryManagementApp_651e48bd"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "-Djava.library.path=C:\\Users\\jaren\\Documents\\School\\CPRO 1121-Java\\InventoryManagementApp\\lib\\sqljdbc_12.10\\enu\\auth\\x64\\mssql-jdbc_auth-12.10.0.x64.dll",
+            "projectName": "InventoryManagementApp"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}

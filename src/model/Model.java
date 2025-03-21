@@ -12,12 +12,14 @@ public class Model {
     
     // method to connect to the database
     public static Connection databaseConnection() {
-        String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=InventoryManager;integratedSecurity=true"; // connection string
-
+        //String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=InventoryManager;integratedSecurity=true;encrypt=false;trustServerCertificate=false;"; // connection string
+        String connectionString = "jdbc:sqlserver://localhost:1433;databaseName=InventoryManager;trustServerCertificate=true;integratedSecurity=true;encrypt=true;user=Jarens_laptop/jaren;password=treefrog";
         try {
+            
             Connection connection = DriverManager.getConnection(connectionString); // connection object using driver manager class to access the database
             return connection;
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
