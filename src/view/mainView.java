@@ -17,12 +17,13 @@ public class mainView {
     public JTextField usernameCreateField, passwordCreateField, confPasswordCreateField;
     public JButton enterBtn, createAccBtn, submitBtn;
 
+    private Controller controller;
     public mainView() {
-        initializeWindow();
+        initializeWindow(controller);
     }
 
     //method for the window
-    public void initializeWindow() {
+    public void initializeWindow(ActionListener l) {
 
 
         // basic window information
@@ -52,7 +53,7 @@ public class mainView {
         enterBtn = new JButton("Enter");
         createAccBtn = new JButton("Create Account");
 
-       
+        createAccBtn.addActionListener(l);
 
         // add all elements to the panel
         loginPanel.add(usernameLbl);
@@ -109,11 +110,8 @@ public class mainView {
         window.repaint();    
     }
 
-    public void addCreateAccountListener(ActionListener l) {
-        createAccBtn.addActionListener(l);
-    }
 
-    public void addSubmitNewAccountListener(ActionListener l) {
-        submitBtn.addActionListener(l);
-    }
+    /*public void addCreateAccountListener(ActionListener l) {
+        createAccBtn.addActionListener(l);
+    }*/
 }
