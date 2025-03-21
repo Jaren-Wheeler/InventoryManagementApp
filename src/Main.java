@@ -1,18 +1,16 @@
 
-import view.mainView;
+import view.LoginView;
 import model.Model;
-import controller.Controller;
+import controller.LoginController;
 
 public class Main {
     public static void main(String[] args) {
         Model model = new Model(); // create the model
-        mainView loginWindow = new mainView(); //create the login window view, initially passing null to the controller
-        Controller controller = new Controller(model,loginWindow); // create the controller which connects both model and view
+        LoginView loginWindow = new LoginView(); //create the login window view, initially passing null to the controller
+        LoginController loginController = new LoginController(model,loginWindow); // create the controller object for login page which connects both model and view
        
-        loginWindow.initializeWindow(controller); // open the login window
-        //loginWindow.addCreateAccountListener(controller); 
-
-        //loginWindow.createAccWindow(controller);
+        loginWindow.initializeWindow(loginController); // open the login window
+       
        
     }
     

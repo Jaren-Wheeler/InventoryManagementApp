@@ -2,7 +2,7 @@
 package view;
 
 import model.Model;
-import controller.Controller;
+import controller.LoginController;
 
 import java.util.Scanner;
 import javax.swing.*;
@@ -10,15 +10,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class mainView {
+public class LoginView {
     public JFrame window;
     public JPanel loginPanel;
     public JLabel usernameCreateLbl,passwordCreateLbl, confPasswordCreateLbl;
     public JTextField usernameCreateField, passwordCreateField, confPasswordCreateField;
     public JButton enterBtn, createAccBtn, submitBtn;
 
-    private Controller controller;
-    public mainView() {
+    private LoginController controller;
+    public LoginView() {
         initializeWindow(controller);
     }
 
@@ -53,6 +53,8 @@ public class mainView {
         enterBtn = new JButton("Enter");
         createAccBtn = new JButton("Create Account");
 
+        // action listeners for the button which get executed in Controller.java
+        enterBtn.addActionListener(l);
         createAccBtn.addActionListener(l);
 
         // add all elements to the panel
@@ -90,6 +92,9 @@ public class mainView {
         // button for submitting info
         submitBtn = new JButton("Submit");
       
+        // action listener for submit btn which gets executed in Controller.java
+        submitBtn.addActionListener(l);
+
         // add everything to the panel
         createAccPanel.add(usernameCreateLbl);
         createAccPanel.add(usernameCreateField);
@@ -99,7 +104,6 @@ public class mainView {
         createAccPanel.add(confPasswordCreateField);
         createAccPanel.add(submitBtn);
      
-        submitBtn.addActionListener(l);
         
         // remove login panel and add create account panel to the window
         window.remove(loginPanel);
@@ -109,9 +113,4 @@ public class mainView {
         window.revalidate();
         window.repaint();    
     }
-
-
-    /*public void addCreateAccountListener(ActionListener l) {
-        createAccBtn.addActionListener(l);
-    }*/
 }
